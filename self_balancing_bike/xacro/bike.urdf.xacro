@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="bike" >
+  
+  <xacro:include filename="$(find self_balancing_bike)/xacro/bike.material.xacro"/>
+  <xacro:include filename="$(find self_balancing_bike)/xacro/bike.transmission.xacro"/>
+  <xacro:include filename="$(find self_balancing_bike)/xacro/bike.sensors.xacro"/>
+
+    <link name="base_footprint"/>
+    <link
+      name="base_link">
+      <inertial>
+        <origin
+          xyz="0.0057072 9.0919E-05 0.020035"
+          rpy="0 0 0" />
+        <mass
+          value="0.62387" />
+        <inertia
+          ixx="0.0013004"
+          ixy="-4.102E-05"
+          ixz="-0.000955"
+          iyy="0.0050851"
+          iyz="-9.3531E-06"
+          izz="0.0050188" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/base_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="1 0 0 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/base_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint
+      name="base_footprint_joint"
+      type="fixed">
+      <origin
+        xyz="0 0 0.0345"
+        rpy="0 0 0" />
+      <parent
+        link="base_footprint" />
+      <child
+        link="base_link" />
+    </joint>
+
+    <link
+      name="imu_link">
+      <inertial>
+        <origin
+          xyz="-3.4694E-18 -1.6193E-05 -0.015"
+          rpy="0 0 0" />
+        <mass
+          value="0.008832" />
+        <inertia
+          ixx="7.095E-07"
+          ixy="-1.4027E-25"
+          ixz="1.6502E-39"
+          iyy="7.095E-07"
+          iyz="1.697E-39"
+          izz="9.4208E-08" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/imu_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.9 0.9 0 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/imu_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="imu_joint"
+      type="fixed">
+      <origin
+        xyz="0 0 0.036"
+        rpy="0 0 0" />
+      <parent
+        link="base_link" />
+      <child
+        link="imu_link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+    <link
+      name="rear_wheel_link">
+      <inertial>
+        <origin
+          xyz="5.7718E-14 6.0024E-13 -1.4024E-14"
+          rpy="0 0 0" />
+        <mass
+          value="0.2475" />
+        <inertia
+          ixx="0.00028923"
+          ixy="-1.546E-17"
+          ixz="-3.4005E-15"
+          iyy="0.00056923"
+          iyz="-8.2688E-17"
+          izz="0.00028923" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/rear_wheel_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1 0.1 0.1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/rear_wheel_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="rear_wheel_joint"
+      type="continuous">
+      <origin
+        xyz="-0.11568 -0.0010941 0.0325"
+        rpy="0 0 0.0097934" />
+      <parent
+        link="base_link" />
+      <child
+        link="rear_wheel_link" />
+      <axis
+        xyz="0 1 0" />
+      <limit
+        effort="30"
+        velocity="10.47" />
+      <!-- <dynamics
+        damping="0.0001"
+        friction="0.0001" /> -->
+    </joint>
+    <link
+      name="handle_link">
+      <inertial>
+        <origin
+          xyz="-0.0050512 -0.00029793 -0.028916"
+          rpy="0 0 0" />
+        <mass
+          value="0.084166" />
+        <inertia
+          ixx="0.00015542"
+          ixy="3.2034E-09"
+          ixz="7.8858E-09"
+          iyy="2.5174E-05"
+          iyz="2.8994E-10"
+          izz="0.00013607" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/handle_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0 0 0.65 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/handle_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="handle_joint"
+      type="revolute">
+      <origin
+        xyz="0.17612 0.0017637 0.1325"
+        rpy="0 0 0" />
+      <parent
+        link="base_link" />
+      <child
+        link="handle_link" />
+      <axis
+        xyz="0 0 -1" />
+      <limit
+        lower="-1.0472"
+        upper="1.0472"
+        effort="20"
+        velocity="6.28" />
+      <!-- <dynamics
+        damping="0.0001"
+        friction="0.0001" /> -->
+    </joint>
+    <link
+      name="front_wheel_link">
+      <inertial>
+        <origin
+          xyz="5.7593E-14 6.0145E-13 -1.4981E-14"
+          rpy="0 0 0" />
+        <mass
+          value="0.24701" />
+        <inertia
+          ixx="0.00028917"
+          ixy="-1.6813E-17"
+          ixz="-3.4026E-15"
+          iyy="0.00056923"
+          iyz="-8.2388E-17"
+          izz="0.00028917" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/front_wheel_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.1 0.1 0.1 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/front_wheel_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="front_wheel_joint"
+      type="continuous">
+      <origin
+        xyz="-0.00022305 -2.5562E-05 -0.1042"
+        rpy="0 0 0" />
+      <parent
+        link="handle_link" />
+      <child
+        link="front_wheel_link" />
+      <axis
+        xyz="0 1 0" />
+      <!-- <dynamics
+        damping="0.00001"
+        friction="0.00001" /> -->
+    </joint>
+    <link
+      name="rw_motor_link">
+      <inertial>
+        <origin
+          xyz="-0.012449 -0.00012011 1.0704E-06"
+          rpy="0 0 0" />
+        <mass
+          value="0.49778" />
+        <inertia
+          ixx="9.1585E-05"
+          ixy="-3.6499E-06"
+          ixz="1.0994E-08"
+          iyy="0.00046554"
+          iyz="3.0638E-09"
+          izz="0.00046557" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/rw_motor_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.68627 0.65882 0.63922 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/rw_motor_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="rw_motor_joint"
+      type="fixed">
+      <origin
+        xyz="0.0196 0.00023076 0.071352"
+        rpy="0 0 0" />
+      <parent
+        link="base_link" />
+      <child
+        link="rw_motor_link" />
+      <axis
+        xyz="0 0 0" />
+    </joint>
+    <link
+      name="rw_link">
+      <inertial>
+        <origin
+          xyz="0.005098 4.471E-05 -1.9127E-06"
+          rpy="0 0 0" />
+        <mass
+          value="0.41664" />
+        <inertia
+          ixx="0.00076419"
+          ixy="3.5819E-06"
+          ixz="-8.9815E-09"
+          iyy="0.00039599"
+          iyz="5.2898E-09"
+          izz="0.00039595" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/rw_link.STL" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.5 0.65 0.2 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh
+            filename="package://self_balancing_bike/meshes/rw_link.STL" />
+        </geometry>
+      </collision>
+    </link>
+    <joint
+      name="rw_joint"
+      type="continuous">
+      <origin
+        xyz="0.047915 0.00046926 0"
+        rpy="0 0 0" />
+      <parent
+        link="rw_motor_link" />
+      <child
+        link="rw_link" />
+      <axis
+        xyz="0.99995 0.0097932 0" />
+      <limit
+        effort="100"
+        velocity="25" />
+      <dynamics
+        damping="0.00001"
+        friction="0.00004" />
+    </joint>
+
+</robot>

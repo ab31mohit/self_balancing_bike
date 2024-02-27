@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  
+    <include
+        file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <arg name="paused" value="true"/>
+    </include>
+
+    <include file="$(find self_balancing_bike)/launch/set_controllers.launch"/>
+        
+    <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find self_balancing_bike)/xacro/bike.urdf.xacro'" />
+    
+        <node name="bike_spawner" pkg="gazebo_ros" type="spawn_model" 
+        output="screen" args="-urdf -model bike -param robot_description -x 0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
+    
+</launch>
