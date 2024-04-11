@@ -33,14 +33,15 @@ catkin_make
 
 ## Usage 
 
-### Run the following command in your terminal to check if everything is working properly.
+### Run the following command to launch the bike in gazebo and start balancing.
 ```
-roslaunch self_balancing_bike empty_world.launch
-```
-It will open the gazebo world like this  
-<div align="center">
-  <img src="animations/empty_world.gif" alt="empty_world" />
-</div>
+roslaunch self_balancing_bike empty_world_urdf.launch
+```  
+
+| (Without balancing the bike)                  |     Balancing bike at a point                    |
+|-------------------------------------------|----------------------------------|
+|![GIF 1](animations/Bike_fall.gif)         |             ![GIF 2](animations/Bike_Balance.gif) 
+
 
 These are the frames attached to different portions of the bike
    
