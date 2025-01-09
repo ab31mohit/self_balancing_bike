@@ -1,3 +1,5 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/ab31mohit/self_balancing_bike)
+
 # Reaction wheel Bike
 The bike is designed by assembling different parts, taken from different sources and some were built explicitly. This ros package tries to demonstrate the balancing of a two wheeled bike in ros-noetic using a reaciton wheel.
 
