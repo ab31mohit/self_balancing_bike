@@ -11,7 +11,7 @@ The bike is designed by assembling different parts, taken from different sources
 ## Installations/setup
 
 ### 1. Create a ros package using following commands : 
-```
+```bash
 cd ~
 mkdir -p catkin_ws/src
 cd catkin_ws
@@ -19,19 +19,25 @@ catkin_make
 ```
 
 ### 2. Make sure to source your ros repo using this command : 
-```
+```bash
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-
 ```
 
+### 3. Install required ros packages :   
 
-### 2. Clone this ros package in your local ros workspace :
+```bash
+sudo apt-get install ros-noetic-ros-control -y
+sudo apt-get install ros-noetic-ros-controllers -y
 ```
+
+### 4. Clone this ros package in your local ros workspace :
+```bash
 cd ~/catkin_ws/src
-git clone git@github.com:ab31mohit/self_balancing_bike.git
+git clone https://github.com/ab31mohit/self_balancing_bike.git
 cd ..
 catkin_make
 ```
+
 
 ## Usage 
 
