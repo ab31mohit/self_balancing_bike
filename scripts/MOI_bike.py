@@ -10,7 +10,7 @@ class IMUDataLogger:
     def __init__(self):
         rospy.init_node('imu_data_logger_node', anonymous=True)
         self.imu_subscriber = rospy.Subscriber('/imu', Imu, self.imu_callback)
-        self.output_file = "/home/mohit/workspace/catkin_ws/src/self_balancing_bike/scripts/imu_data.csv"
+        self.output_file = "/home/mohit/workspace/catkin_ws/src/self_balancing_bike/scripts/IMU_data.csv"
         rospy.loginfo("Output file path: {}".format(self.output_file))
 
         self.initialize_csv_file()

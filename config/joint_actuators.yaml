@@ -17,7 +17,6 @@ bike:
     joint: handle_joint
     pid: {p: 0.03, i: 0.001,  d: 0.0005}
 
-
   gazebo_ros_control:
       pid_gains:
           rear_wheel_joint:   {p: 0.01, i: 0.0001, d: 0.00002}

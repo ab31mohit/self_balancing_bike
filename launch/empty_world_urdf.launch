@@ -23,7 +23,7 @@
     output="screen" />
     
   <!-- <node name="IMU_DATA_MOI_BIKE_node" pkg="self_balancing_bike" type="MOI_bike.py" output="screen" /> -->
-  <node name="node_balance" pkg="self_balancing_bike" type="control.py" output="screen" />
+  <node name="bike_balance_node" pkg="self_balancing_bike" type="control.py" output="screen" />
   
   <!-- <node
     name="joint_state_publisher_gui"

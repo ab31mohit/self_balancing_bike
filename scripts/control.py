@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from std_msgs.msg import Float64
 from sensor_msgs.msg import Imu, JointState
@@ -13,7 +13,7 @@ import math
 class Bike():  # Self Balancing Bike
     def __init__(self):
 
-        rospy.init_node('controller')
+        rospy.init_node('bike_balance_node')
 
 #Initialisations:
         

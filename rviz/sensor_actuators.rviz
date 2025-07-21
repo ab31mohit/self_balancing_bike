@@ -39,7 +39,7 @@ Visualization Manager:
       Color: 160; 160; 164
       Enabled: true
       Line Style:
-        Line Width: 0.029999999329447746
+        Line Width: 0.0299999993294477
         Value: Lines
       Name: Grid
       Normal Cell Count: 0
