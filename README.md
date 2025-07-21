@@ -48,13 +48,13 @@ roslaunch self_balancing_bike empty_world_urdf.launch
 
 | (Without balancing the bike)                  |     Balancing bike at a point                    |
 |-------------------------------------------|----------------------------------|
-|![GIF 1](animations/Bike_fall.gif)         |             ![GIF 2](animations/Bike_Balance.gif) 
+|![GIF 1](animations/bike_fall.gif)         |             ![GIF 2](animations/bike_balance.gif) 
 
 
 These are the frames attached to different portions of the bike
    
 <div align="center">
-  <img src="animations/bike_frames.png" alt="bike_frames" />
+  <img src="animations/bike_tf_frames.png" alt="bike_tf_frames" />
 </div>
 
 You can launch the `rviz.launch` file to visualize these frames.
